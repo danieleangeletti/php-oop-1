@@ -20,9 +20,13 @@ class Movie
     }
     public function get_details()
     {
-        return 'title: ' . $this->title . ', ' . 'original language: ' . $this->original_language . ', ' . 'execution time: ' . $this->execution_time . ', ' . 'producer: ' . $this->producer . ', ' . 'country of origin: ' . $this->country_of_origin . ', ' . 'genres: ' . $this->genres;
+        $genres_list = '';
+        foreach ($this->genres as $genre) {
+            $genres_list .= $genre . ' ';
+        }
+        return 'title: ' . $this->title . ', ' . 'original language: ' . $this->original_language . ', ' . 'execution time: ' . $this->execution_time . ', ' . 'producer: ' . $this->producer . ', ' . 'country of origin: ' . $this->country_of_origin . ', ' . 'genres: ' . $genres_list;
     }
-    public function set_genres($genre)
+    public function set_genre($genre)
     {
         $this->genres[] = $genre;
     }
